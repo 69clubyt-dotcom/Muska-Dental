@@ -1,10 +1,8 @@
-import { Phone, MapPin, Clock, Menu, X, CheckCircle, Star, Languages } from 'lucide-react';
+import { Phone, MapPin, Clock, Menu, X, CheckCircle, Star } from 'lucide-react';
 import { useState } from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200 shadow-sm">
@@ -23,29 +21,20 @@ export default function Navbar() {
           </div>
 
           <nav className="hidden lg:flex space-x-8">
-            <a href="#home" className="text-slate-600 hover:text-brand-blue font-medium transition-colors">{t.nav.home}</a>
-            <a href="#services" className="text-slate-600 hover:text-brand-blue font-medium transition-colors">{t.nav.services}</a>
-            <a href="#why-us" className="text-slate-600 hover:text-brand-blue font-medium transition-colors">{t.nav.whyUs}</a>
-            <a href="#doctor" className="text-slate-600 hover:text-brand-blue font-medium transition-colors">{t.nav.doctor}</a>
-            <a href="#testimonials" className="text-slate-600 hover:text-brand-blue font-medium transition-colors">{t.nav.reviews}</a>
+            <a href="#home" className="text-slate-600 hover:text-brand-blue font-medium transition-colors">Home</a>
+            <a href="#services" className="text-slate-600 hover:text-brand-blue font-medium transition-colors">Services</a>
+            <a href="#why-us" className="text-slate-600 hover:text-brand-blue font-medium transition-colors">Why Choose Us</a>
+            <a href="#doctor" className="text-slate-600 hover:text-brand-blue font-medium transition-colors">Meet Doctor</a>
+            <a href="#testimonials" className="text-slate-600 hover:text-brand-blue font-medium transition-colors">Reviews</a>
           </nav>
 
           <div className="hidden md:flex items-center gap-6">
-            {/* Language Toggle */}
-            <button 
-              onClick={() => setLanguage(language === 'en' ? 'hi' : 'en')}
-              className="flex items-center gap-2 text-sm font-bold text-slate-600 hover:text-brand-blue transition-colors border border-slate-200 px-3 py-1.5 rounded-full"
-            >
-              <Languages className="w-4 h-4" />
-              <span>{language === 'en' ? 'हिन्दी' : 'English'}</span>
-            </button>
-
             <div className="text-right border-r pr-6 border-slate-200 hidden lg:block">
               <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Open till 8 PM</p>
               <p className="text-sm font-bold text-brand-blue mt-0.5">+91 87570 87454</p>
             </div>
             <a href="#appointment" className="bg-brand-blue hover:bg-brand-blue-dark text-white px-5 py-2.5 rounded-full font-bold text-sm shadow-lg shadow-brand-blue/30 transition-colors">
-              {t.nav.book}
+              Book Appointment
             </a>
           </div>
 
